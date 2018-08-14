@@ -1,0 +1,67 @@
+#!/bin/bash
+
+##Template SLURM for dadi 
+
+#SBATCH --job-name=dadi_MYJOBNAME
+#SBATCH --partition=workq
+#SBATCH --time=0-89:00:00
+#SBATCH --mem=5G
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks=1
+#SBATCH --workdir="MYWPATH"
+#SBATCH --output=dadi_LOGFILENAME.out
+
+#echo "toto"
+#exit 0
+
+#source ~/.bashrc
+#export LC_ALL=C
+#use at genotoul with container
+module load system/Python-2.7.15
+#module load system/singularity-2.5.1
+
+#otherwise use python virtualenv 
+#source ~/virtual_env_projects/dadi/bin/activate
+MYACTIVATE
+
+#set working directory
+wd=MYWPATH
+cd $wd
+
+LC_ALL=C
+export LC_ALL
+LC_NUMERIC=en_GB.UTF-8
+export LC_NUMERIC
+
+pr=`echo -n $(date +"%s%3N")$((RANDOM%1000))`
+
+#where are the tools
+#DADI='mydadicontainerpath/dadi'
+
+#output prefix
+base=MYNUE
+
+mkdir -p ${wd}/${base}_tmpcache_${pr}
+mkdir -p ${wd}/${base}_tmpcache_${pr}/local/share
+mkdir -p ${wd}/${base}_tmpcache_${pr}/config
+
+#added envvar to avoid the creation of folder ~/.cache
+export XDG_CONFIG_HOME="${wd}/${base}_tmpcache_${pr}"
+export PYTHON_EGG_CACHE="${wd}/${base}_tmpcache_${pr}"
+export XDG_DATA_HOME="${wd}/${base}_tmpcache_${pr}/local/share"
+export XDG_CONFIG_HOME="${wd}/${base}_tmpcache_${pr}/config"
+export MPLCONFIGDIR="${wd}/${base}_tmpcache_${pr}"
+
+
+#run alignement
+MYCMDFULL
+
+MYDEACTIVATE
+#use at genotoul
+#module unload system/singularity-2.5.1
+module unload system/Python-2.7.15
+#otherwise use python virtualenv 
+#deactivate
+
+exit 0
+
