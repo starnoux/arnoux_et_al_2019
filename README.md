@@ -30,4 +30,12 @@ This third guideline is giving indication  on how we inferred our models, this p
  
 5.  dadi_inference  
   
-  
+And the scripts necessary to the run the inferences are described in the following folder.    
+     
+6.script_dadi
+   
+### Addditional scripts  
+   
+All the scripts necessary for the DNAsp analyses (PCA and PiN/PiS analyses) were described in the folder.    
+   
+7.  script_PCA   
