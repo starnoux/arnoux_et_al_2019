@@ -20,7 +20,8 @@ All the scripts are named from *01_fastqc_quality.py* to *10_subVCFfromFilter.vb
 This second guideline is giving details on the statistical analyses:  
 *WARNING:* Use the guidline **_B_SFS_production.md_** that is the detailed pipeline script.
    
-4.  From_VCF_toSFS 
+4.  From_VCF_toPED_toSFS-&-FASTA
+
   
    
 ### C.Model Inferring with dadi software    
@@ -32,7 +33,7 @@ This third guideline is giving indication  on how we inferred our models, this p
   
 And the scripts necessary to the run the inferences are described in the following folder.    
      
-6.script_dadi
+6. script_dadi
    
 ### Addditional scripts  
    
