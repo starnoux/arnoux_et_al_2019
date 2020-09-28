@@ -40,3 +40,8 @@ And the scripts necessary to the run the inferences are described in the followi
 All the scripts necessary for the DNAsp analyses (PCA and PiN/PiS analyses) were described in the folder.    
    
 7.  script_PCA   
+
+All the scripts used for the modelling using DILS are described in the folder.   
+
+8. DILS_scripts   
+
